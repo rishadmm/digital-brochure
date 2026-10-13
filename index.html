@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AIBizs · E-Invoicing Brochures</title>
+<meta name="description" content="Digital brochures from AIBizs and Infinity Thoughts: OTA-approved e-invoicing (Fawtara) for Oman with ConvergeX.">
+<meta property="og:title" content="AIBizs · E-Invoicing Brochures">
+<meta property="og:description" content="OTA-approved e-invoicing for Oman. Open our interactive tri-fold brochures.">
+<meta property="og:image" content="assets/b1/C.webp">
+<meta name="theme-color" content="#0B1F3A">
+<style>
+:root{--navy:#0B1F3A;--navy2:#13284A;--orange:#F26A21;--blue:#1E88C8;--ink:#E6EDF7;--mute:#9FB0C8}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{font-family:Inter,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#06122A;overflow:hidden}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(1200px 700px at 85% 0%,rgba(242,106,33,.20),transparent 60%),radial-gradient(1000px 700px at 0% 100%,rgba(30,136,200,.25),transparent 60%),linear-gradient(135deg,#06122A,#0E2548);z-index:-1}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+
+/* ---------- HOME ---------- */
+#home{position:fixed;inset:0;overflow:auto;padding:28px 20px 40px;display:flex;flex-direction:column;align-items:center}
+.brand{display:flex;align-items:center;gap:14px;margin-top:6px}
+.brand img{height:30px}
+.home-h{font-size:clamp(24px,4.4vw,40px);font-weight:800;text-align:center;margin-top:26px;letter-spacing:-.01em}
+.home-h span{color:var(--orange)}
+.home-p{color:var(--mute);text-align:center;margin-top:10px;font-size:15px;max-width:520px;line-height:1.5}
+.cards{display:flex;flex-wrap:wrap;gap:28px;justify-content:center;margin-top:30px;width:100%;max-width:900px}
+.bcard{width:min(300px,78vw);text-align:left;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:16px;transition:transform .25s,box-shadow .25s}
+.bcard:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.bcard .cov{position:relative;aspect-ratio:3.896/8.27;border-radius:6px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.45);background:#0B1F3A}
+.bcard .cov img{width:100%;height:100%;object-fit:cover;display:block}
+.bcard .cov::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.22),transparent 8%,transparent 92%,rgba(255,255,255,.08))}
+.bcard h3{font-size:17px;margin-top:14px}
+.bcard p{font-size:13px;color:var(--mute);margin-top:4px;line-height:1.4}
+.bcard .go{margin-top:12px;display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px}
+.foot{margin-top:34px;color:var(--mute);font-size:12px;text-align:center}
+
+/* ---------- VIEWER ---------- */
+#viewer{position:fixed;inset:0;display:none;flex-direction:column}
+#viewer.on{display:flex}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top))}
+.top .t{font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ibtn{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);font-size:13px;font-weight:600;white-space:nowrap;text-decoration:none}
+.ibtn svg{width:16px;height:16px}
+.stage{flex:1;position:relative;perspective:2600px;overflow:hidden;touch-action:pan-y pinch-zoom;user-select:none;-webkit-user-select:none}
+.cam{position:absolute;left:50%;top:50%;width:1200px;height:2547px;margin-left:-600px;margin-top:-1273.5px;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.65,.05,.25,1)}
+.leaf{position:absolute;top:0;width:400px;height:2547px;height:100%;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.65,.05,.25,1)}
+.leaf.l{left:0;transform-origin:100% 50%}
+.leaf.c{left:400px}
+.leaf.r{left:800px;transform-origin:0 50%}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:#0B1F3A}
+.face img{width:100%;height:100%;display:block;pointer-events:none;-webkit-user-drag:none}
+.face.back{transform:rotateY(180deg)}
+.face::after{content:"";position:absolute;inset:0;pointer-events:none;transition:opacity 1.1s}
+.leaf.l .face.front::after{background:linear-gradient(270deg,rgba(0,0,0,.18),transparent 7%)}
+.leaf.r .face.front::after{background:linear-gradient(90deg,rgba(0,0,0,.18),transparent 7%)}
+.leaf.c .face.front::after{background:linear-gradient(90deg,rgba(0,0,0,.12),transparent 6%,transparent 94%,rgba(0,0,0,.12))}
+.sheetshadow{position:absolute;left:0;top:0;height:100%;width:100%;box-shadow:0 60px 140px rgba(0,0,0,.55);transition:all 1s cubic-bezier(.65,.05,.25,1);border-radius:2px;transform:translateZ(-6px)}
+.hot{position:absolute;display:block;z-index:3;border-radius:6px}
+.hot:focus-visible{outline:3px solid var(--orange)}
+.veil{position:absolute;top:0;bottom:0;background:linear-gradient(90deg,rgba(7,18,40,.92),rgba(7,18,40,.80));pointer-events:none;transition:opacity .6s;opacity:0;z-index:5}
+#veilL{left:0;background:linear-gradient(90deg,rgba(7,18,40,.96),rgba(7,18,40,.82))}
+#veilR{right:0;background:linear-gradient(270deg,rgba(7,18,40,.96),rgba(7,18,40,.82))}
+.hint{z-index:6;position:absolute;left:50%;top:10px;transform:translateX(-50%);background:rgba(6,18,42,.75);border:1px solid rgba(255,255,255,.15);padding:8px 16px;border-radius:999px;font-size:13px;color:#fff;pointer-events:none;transition:opacity .5s;white-space:nowrap;backdrop-filter:blur(6px)}
+.bar{display:flex;align-items:center;justify-content:center;gap:14px;padding:12px 16px;padding-bottom:max(14px,env(safe-area-inset-bottom))}
+.nav{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center}
+.nav.primary{background:var(--orange);border-color:var(--orange);width:auto;padding:0 22px;border-radius:999px;font-weight:700;font-size:14px;gap:8px}
+.nav:disabled{opacity:.35;cursor:default}
+.nav svg{width:20px;height:20px}
+.dots{display:flex;gap:7px}
+.dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:all .3s}
+.dots i.on{background:var(--orange);width:22px;border-radius:4px}
+.lbl{font-size:12px;color:var(--mute);text-align:center;min-height:16px;margin-top:-4px}
+@media (max-width:700px){.top .t{font-size:14px}.hide-s{display:none}.bar{gap:10px}}
+@media (prefers-reduced-motion:reduce){.cam,.leaf{transition-duration:.01s}}
+</style>
+</head>
+<body>
+
+<section id="home">
+  <div class="brand"><img src="assets/logo-white.png" alt="AIBizs"></div>
+  <h1 class="home-h">E-invoicing for Oman, <span>made simple</span></h1>
+  <p class="home-p">Tap a brochure to open it. Unfold it page by page, just like the printed version.</p>
+  <div class="cards" id="cards"></div>
+  <div class="foot">© AIBizs · Artificial Intelligence Business Solutions LLC · Sultanate of Oman</div>
+</section>
+
+<section id="viewer" aria-label="Brochure viewer">
+  <div class="top">
+    <button class="ibtn" id="backHome" aria-label="All brochures"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg><span class="hide-s">Brochures</span></button>
+    <div class="t" id="vt"></div>
+    <a class="ibtn" id="pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>PDF</a>
+  </div>
+  <div class="stage" id="stage">
+    <div class="cam" id="cam">
+      <div class="sheetshadow" id="shadow"></div>
+      <div class="leaf l" id="L"><div class="face front" data-p="p1"></div><div class="face back" data-p="C"></div></div>
+      <div class="leaf c" id="Cn"><div class="face front" data-p="p2"></div><div class="face back" data-p="B"></div></div>
+      <div class="leaf r" id="R"><div class="face front" data-p="p3"></div><div class="face back" data-p="A"></div></div>
+    </div>
+    <div class="veil" id="veilL"></div><div class="veil" id="veilR"></div>
+    <div class="hint" id="hint">Tap or swipe to open</div>
+  </div>
+  <div class="lbl" id="lbl"></div>
+  <div class="bar">
+    <button class="nav" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <div class="dots" id="dots"></div>
+    <button class="nav" id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+</section>
+
+<script>
+/* Brochure data. Panel images: A|B|C = outside (left→right), p1|p2|p3 = inside.
+   Hotspots are in % of the panel (x, y, w, h). */
+const PW = 3.8964, PH = 8.27;
+const hs = (x, y, w, h, href) => ({ x: x / PW * 100, y: y / PH * 100, w: w / PW * 100, h: h / PH * 100, href });
+const BROCHURES = {
+  b1: {
+    title: "ConvergeX by AIBizs",
+    sub: "Oman’s own e-invoicing partner · OTA-approved ASP",
+    pdf: "assets/AIBizs-ConvergeX-Brochure.pdf",
+    hot: { B: [
+      hs(1.10, 1.92, 1.66, 1.66, "https://convergex.biz/"),
+      hs(0.36, 5.20, 2.4, 0.36, "tel:+96897782559"),
+      hs(0.36, 5.68, 2.4, 0.36, "mailto:solutions@aibizs.com"),
+      hs(0.36, 6.08, 2.4, 0.29, "https://aibizs.com/"),
+      hs(0.36, 6.37, 2.4, 0.29, "https://convergex.biz/"),
+    ] }
+  },
+  b2: {
+    title: "AIBizs × Infinity Thoughts",
+    sub: "From POS, accounting & ERP software to e-invoice, end to end",
+    pdf: "assets/AIBizs-InfinityThoughts-Brochure.pdf",
+    hot: { B: [
+      hs(0.36, 6.10, 2.4, 0.34, "tel:+96897782559"),
+      hs(0.36, 6.40, 2.4, 0.32, "mailto:sales@infinitythoughts.com"),
+      hs(0.36, 6.69, 2.4, 0.32, "https://www.infinitythoughts.com/"),
+    ] }
+  }
+};
+const LABELS = { C: "Front cover", p1: "Inside", A: "Inside flap", p2: "Inside", p3: "Inside", B: "Back cover" };
+
+/* ---------- home ---------- */
+const cards = document.getElementById('cards');
+for (const [id, b] of Object.entries(BROCHURES)) {
+  const el = document.createElement('button');
+  el.className = 'bcard';
+  el.innerHTML = `<div class="cov"><img src="assets/${id}/C.webp" alt="${b.title} cover" loading="lazy"></div><h3>${b.title}</h3><p>${b.sub}</p><span class="go">Open brochure <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>`;
+  el.onclick = () => { location.hash = id; };
+  cards.appendChild(el);
+}
+
+/* ---------- viewer ---------- */
+const $ = id => document.getElementById(id);
+const cam = $('cam'), L = $('L'), R = $('R'), stage = $('stage');
+const W = 400, H = W * PH / PW;
+cam.style.height = H + 'px'; cam.style.marginTop = (-H / 2) + 'px';
+document.querySelectorAll('.leaf').forEach(l => l.style.height = H + 'px');
+
+// fold states: which leaves are folded, whether flipped to back
+const STATES = {
+  closed: { l: true, r: true, flip: false, slots: [1, 1] },
+  cover:  { l: false, r: true, flip: false, slots: [0, 1] },
+  open:   { l: false, r: false, flip: false, slots: [0, 2] },
+  back:   { l: true, r: true, flip: true, slots: [1, 1] },
+};
+// desktop sequence vs. mobile sequence (mobile focuses one panel at a time)
+const SEQ_DESK = [['closed', null, 'C'], ['cover', null, 'p1 · A'], ['open', null, 'p1 · p2 · p3'], ['back', null, 'B']];
+const SEQ_MOB = [['closed', 1, 'C'], ['cover', 0, 'p1'], ['cover', 1, 'A'], ['open', 1, 'p2'], ['open', 2, 'p3'], ['back', 1, 'B']];
+let cur = null, step = 0, mobile = false;
+
+function seq() { return mobile ? SEQ_MOB : SEQ_DESK; }
+
+function load(id) {
+  const b = BROCHURES[id]; if (!b) return;
+  cur = id;
+  $('vt').textContent = b.title;
+  $('pdf').href = b.pdf;
+  document.querySelectorAll('.face').forEach(f => {
+    const p = f.dataset.p;
+    f.innerHTML = `<img src="assets/${id}/${p}.webp" alt="${b.title} – ${LABELS[p]}" draggable="false">`;
+    (b.hot[p] || []).forEach(h => {
+      const a = document.createElement('a');
+      a.className = 'hot'; a.href = h.href;
+      if (h.href.startsWith('http')) { a.target = '_blank'; a.rel = 'noopener'; }
+      a.setAttribute('aria-label', h.href.replace(/^(tel:|mailto:|https?:\/\/)/, ''));
+      Object.assign(a.style, { left: h.x + '%', top: h.y + '%', width: h.w + '%', height: h.h + '%' });
+      f.appendChild(a);
+    });
+  });
+  $('home').style.display = 'none'; $('viewer').classList.add('on');
+  step = 0; layout(true);
+  $('hint').style.opacity = 1;
+}
+
+function layout(instant) {
+  mobile = innerWidth < 760 || innerWidth / innerHeight < .8;
+  const s = seq(); step = Math.max(0, Math.min(step, s.length - 1));
+  const [stName, focus] = s[step]; const st = STATES[stName];
+  // fold leaves
+  L.style.transform = st.l ? 'rotateY(180deg) translateZ(-4px)' : 'rotateY(0deg)';
+  R.style.transform = st.r ? 'rotateY(-180deg) translateZ(-2px)' : 'rotateY(0deg)';
+  // visible slot range
+  let a = st.slots[0], b = st.slots[1];
+  if (mobile) { a = b = focus; }
+  const n = b - a + 1;
+  const sr = stage.getBoundingClientRect();
+  const pad = mobile ? 18 : 40;
+  const sc = Math.min((sr.width - pad * 2) / (n * W), (sr.height - pad * 1.2) / H);
+  const cx = (a + b + 1) / 2 * W;            // centre of visible region in sheet coords
+  const tx = (1.5 * W - cx) * sc;
+  cam.style.transition = instant ? 'none' : '';
+  [L, R].forEach(e => e.style.transition = instant ? 'none' : '');
+  cam.style.transform = `translateX(${tx}px) scale(${sc}) rotateY(${st.flip ? 180 : 0}deg)`;
+  // mobile: soften neighbouring panels so the focused page stands out
+  const gap = Math.max(0, (sr.width - W * sc) / 2 - 2);
+  ['veilL', 'veilR'].forEach(v => { const e = $(v); e.style.width = gap + 'px'; e.style.opacity = mobile ? 1 : 0; });
+  // shadow follows the visible paper
+  const sh = $('shadow');
+  const vis = stName === 'open' ? [0, 3] : stName === 'cover' ? [0, 2] : [1, 2];
+  sh.style.left = vis[0] * W + 'px'; sh.style.width = (vis[1] - vis[0]) * W + 'px';
+  if (instant) requestAnimationFrame(() => { cam.style.transition = ''; [L, R].forEach(e => e.style.transition = ''); });
+  // controls
+  $('prev').disabled = step === 0; $('next').disabled = step === s.length - 1;
+  $('dots').innerHTML = s.map((_, i) => `<i class="${i === step ? 'on' : ''}"></i>`).join('');
+  $('lbl').textContent = s[step][2].split(' · ').map(p => LABELS[p] || p).filter((v, i, arr) => arr.indexOf(v) === i).join(' · ');
+  $('hint').textContent = step === 0 ? (mobile ? 'Swipe or tap › to open' : 'Click › or press → to open') : '';
+  $('hint').style.opacity = step === 0 ? 1 : 0;
+}
+function go(d) { const s = seq(); const n = Math.max(0, Math.min(s.length - 1, step + d)); if (n !== step) { step = n; layout(); } }
+$('next').onclick = () => go(1);
+$('prev').onclick = () => go(-1);
+$('backHome').onclick = () => { history.pushState('', '', location.pathname); route(); };
+addEventListener('keydown', e => { if (!cur) return; if (e.key === 'ArrowRight' || e.key === ' ') go(1); if (e.key === 'ArrowLeft') go(-1); if (e.key === 'Escape') $('backHome').click(); });
+// swipe
+let sx = null, sy = null, stt = 0;
+stage.addEventListener('touchstart', e => { if (e.touches.length !== 1) { sx = null; return; } sx = e.touches[0].clientX; sy = e.touches[0].clientY; stt = Date.now(); }, { passive: true });
+stage.addEventListener('touchend', e => {
+  if (sx === null) return; const t = e.changedTouches[0]; const dx = t.clientX - sx, dy = t.clientY - sy;
+  if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3) go(dx < 0 ? 1 : -1);
+  sx = null;
+}, { passive: true });
+// click on paper (not a link) advances on desktop / first step
+stage.addEventListener('click', e => { if (e.target.closest('a')) return; if (step === 0 || !mobile) { const r = stage.getBoundingClientRect(); go(e.clientX < r.left + r.width / 3 ? -1 : 1); } });
+let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => cur && layout(true), 120); });
+
+function route() {
+  const id = location.hash.slice(1);
+  if (BROCHURES[id]) load(id);
+  else { cur = null; $('viewer').classList.remove('on'); $('home').style.display = ''; }
+}
+addEventListener('hashchange', route);
+route();
+</script>
+</body>
+</html>
